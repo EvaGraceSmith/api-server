@@ -8,10 +8,6 @@ module.exports = (sequelizeDatabase, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
 
     grade: {
       type: DataTypes.INTEGER,
