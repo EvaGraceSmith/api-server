@@ -1,5 +1,8 @@
 # package.json Notes
 
+## Collaboration
+TA: Matt Miguel, Kati Lee, Tim Maupin
+
 ## For React Applications
 
 To deploy your application at GitHub pages, you'll need to add a home page property to your package.json which points to the deployed base URL of your GitHub Pages site.
