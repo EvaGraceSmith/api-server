@@ -1,7 +1,7 @@
 
 # LAB - Class 03
 
-## Project: Project Name Here
+## Project: Api-Server
 
 ### Author: Eva Grace Smith
 
@@ -11,7 +11,11 @@ Express Crud Server
 
 ### Links and Resources
 
-- [back-end server url](http://xyz.com) (when applicable)
+- [Render Site](https://api-server-ilup.onrender.com)
+
+## UML
+![UML](./img/Class-03-UML.png)
+![UML](./img/Class-04-UML.png)
 
 
 ### Collaborators
@@ -19,6 +23,7 @@ Express Crud Server
 TA: [Daniel Frey](https://github.com/DSFrey), Matt Miguel,
 
 Classmates: Kati Lee, Tim Maupin
+
 
 ### Setup
 
@@ -38,17 +43,21 @@ for now I have none and do not require one
 #### Features / Routes
 
 - Feature One: SQL data models using the Sequelize library
-- GET : `/student` - specific route to hit
+- GET : `/student`
+        `/teacher`
+        `/student/:id` (Get One)
+        `/teacher/:id` (Get One)
+
+- POST: `/student`
+        `/teacher`
+
+- PUT: `/student/`
+        `/teacher/`
+
+- DELETE `/student/:id`
+        `/teacher/:id`
 
 
-## UML
-![UML](./img/Class-03-UML.png)
-![UML](./img/Class-04-UML.png)
 
 
-```json
-{
-  "homepage": "https://yourname.github.io/repository-name"
-}
-```
 
