@@ -33,9 +33,14 @@ router.put('/teacher/:id', async (req, res, next) => {
 });
 
 router.delete('/teacher/:id', async (req, res, next) => {
-  let deletedTeacher = await teacherModel.destroy({where: {id: req.params.id}});
-  console.log('Teacher deleted' , deletedTeacher);
-  res.status(200).send('Teacher deleted');
+  try{
+    let deletedTeacher = await teacherModel.findByPk(req.params.id);
+    await teacherModel.destroy({where: {id: req.params.id}});
+    res.status(200).send(deletedTeacher);
+  }catch(e){
+    next(e);
+  }
+//   console.log('Teacher deleted' , deletedTeacher);
 });
 
 module.exports = router;
