@@ -15,7 +15,7 @@ Express Crud Server
 
 ## UML
 ![UML](./img/Class-03-UML.png)
-![UML](./img/Class-04-UML.png)
+<!-- ![UML](./img/Class-04-UML.png) -->
 
 
 ### Collaborators
