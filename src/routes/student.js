@@ -33,7 +33,8 @@ router.put('/student/:id', async (req, res, next) => {
 
 router.delete('/student/:id', async (req, res, next) => {
   let deletedStudent = await studentModel.destroy({where: {id: req.params.id}});
-  res.status(200).send(deletedStudent);
+  console.log('Student deleted' , deletedStudent);
+  res.status(200).send('Student deleted');
 });
 
 
