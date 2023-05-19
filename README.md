@@ -12,6 +12,7 @@ Express Crud Server
 ### Links and Resources
 
 - [Render Site](https://api-server-ilup.onrender.com)
+- [Sequelize Docs](https://sequelize.org/docs/v6/)
 
 ## UML
 ![UML](./img/Class-03-UML.png)
