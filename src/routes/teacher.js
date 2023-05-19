@@ -10,16 +10,14 @@ router.get('/teacher', async (req, res, next) => {
   let teachers = await teacherModel.findAll();
 
   res.status(200).send(teachers);
-},
-);
+});
 
 router.get('/teacher/:id', async (req, res, next) => {
 
   let singleTeacher = await teacherModel.findByPk(req.params.id);
 
   res.status(200).send(singleTeacher);
-},
-);
+});
 
 router.post('/teacher', async (req, res, next) => {
   let newTeacher = await teacherModel.create(req.body);
@@ -28,9 +26,9 @@ router.post('/teacher', async (req, res, next) => {
 });
 
 router.put('/teacher/:id', async (req, res, next) => {
-  let updatedTeacher = await teacherModel.update(req.body, {where: {id: req.params.id}});
-  let singleTeacher = await teacherModel.findAll({where: {id: req.params.id}});
-  res.status(200).send(singleTeacher);
+  await teacherModel.update(req.body, {where: {id: req.params.id}});
+
+  let updatedTeacher = await teacherModel.findByPk(req.params.id);
   res.status(200).send(updatedTeacher);
 });
 
