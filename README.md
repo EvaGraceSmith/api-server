@@ -1,13 +1,50 @@
-# package.json Notes
 
-## Collaboration
-TA: Matt Miguel, Kati Lee, Tim Maupin
+# LAB - Class 03
 
-## For React Applications
+## Project: Project Name Here
 
-To deploy your application at GitHub pages, you'll need to add a home page property to your package.json which points to the deployed base URL of your GitHub Pages site.
+### Author: Eva Grace Smith
 
-*NOTE: This will break deployments to other hosting services such as Netlify, Vercel, or AWS Amplify, so if you later wish to deploy there, remove this property completely.*
+### Problem Domain
+
+Express Crud Server
+
+### Links and Resources
+
+- [back-end server url](http://xyz.com) (when applicable)
+
+
+### Collaborators
+
+TA: [Daniel Frey](https://github.com/DSFrey), Matt Miguel,
+
+Classmates: Kati Lee, Tim Maupin
+
+### Setup
+
+npm i
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+
+#### How to initialize/run your application (where applicable)
+
+`npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Feature One: SQL data models using the Sequelize library
+- GET : `/student` - specific route to hit
+
+
+## UML
+![UML](./img/Class-03-UML.png)
+![UML](./img/Class-04-UML.png)
+
 
 ```json
 {
@@ -15,33 +52,3 @@ To deploy your application at GitHub pages, you'll need to add a home page prope
 }
 ```
 
-## Node / Express Applications
-
-### For Tests
-
-Your scripts section should have the following, so that you can easily run tests locally and in your CI.
-
-```json
-  "scripts": {
-    "start": "node index.js",
-    "lint": "eslint **/*.js",
-    "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage",
-    "init:config": "sequelize init:config",
-    "db:create": "sequelize db:create"
-},
-```
-
-### For NPM Modules
-
-If you are creating a module to deploy at NPM, you'll want a "bin" section that identifies the name of the global command to run and your .js file that runs when called.
-
-```json
-"bin": {
-    "fetch": "index.js"
-}
-```
-
-Additionally, that file should have as it's first line, so that it'll run without having to type "node filename.js" every time
-
-`#!/usr/bin/env node`
