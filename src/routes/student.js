@@ -17,6 +17,14 @@ router.get('/studentWithTeacher', async (req, res, next) => {
   res.status(200).send(students);
 });
 
+router.get('/studentWithSingleTeacher/:id', async (req, res, next) => {
+  let students = await studentModel.findAll({
+    include: {model:teacherModel},
+    where: {id: req.params.id},
+  });
+
+  res.status(200).send(students);
+});
 
 
 
