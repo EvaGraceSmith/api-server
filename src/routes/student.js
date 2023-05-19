@@ -3,13 +3,23 @@
 const express = require('express');
 
 const router = express.Router();
-const { studentModel } = require('../models');
+const { studentModel, teacherModel } = require('../models');
 
 router.get('/student', async (req, res, next) => {
   let students = await studentModel.findAll();
 
   res.status(200).send(students);
 });
+
+router.get('/studentWithTeacher', async (req, res, next) => {
+  let students = await studentModel.findAll({include: {model:teacherModel}});
+
+  res.status(200).send(students);
+});
+
+
+
+
 router.get('/student/:id', async (req, res, next) => {
   // where clause useful for update.  can also use findByPK()
   let singleStudent = await studentModel.findAll({where: {id: req.params.id}});
