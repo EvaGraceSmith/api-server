@@ -43,6 +43,7 @@ for now I have none and do not require one
 
 ## UML
 ![UML](./img/Class-03-UML.png)
+![UML](./img/Class-04-UML.png)
 
 
 ```json
