@@ -38,10 +38,35 @@ describe('Testing our student routes', () => {
   },
   );
 
-  
+  test('get a single student', async () => {
+    const response = await request.get('/student/1');
+    expect(response.status).toEqual(200);
+    expect(response.body.name).toEqual('Eva');
+    expect(response.body.grade).toEqual(9);
+  },
+  );
 
-},
-);
+  test('update a student', async () => {
+    const response = await request.put('/student/1').send({
+      name: 'Eva',
+      grade: 9,
+      subject: 'math',
+    });
+    expect(response.status).toEqual(200);
+    expect(response.body.name).toEqual('Eva');
+    expect(response.body.grade).toEqual(9);
+    expect(response.body.subject).toEqual('math');
+
+  },
+  );
+
+  test('delete a student', async () => {
+    const response = await request.delete('/student/1');
+    expect(response.status).toEqual(200);
+  },
+  );
+});
+
 
 
 

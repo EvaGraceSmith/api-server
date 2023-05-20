@@ -10,7 +10,7 @@ class Collection{
     try{
       let newRecord = await this.model.create(data);
       return newRecord;
-
+ 
     }catch(e){
       console.log('we have a model create error' .e);
       return e;

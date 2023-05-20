@@ -14,13 +14,13 @@ router.get('/student', async (req, res, next) => {
 });
 
 router.get('/studentWithTeacher', async (req, res, next) => {
-  let students = await student.findAll({include: {model:teacher}});
+  let students = await student.read({include: {model:teacher}});
 
   res.status(200).send(students);
 });
 
 router.get('/studentWithSingleTeacher/:id', async (req, res, next) => {
-  let students = await student.findAll({
+  let students = await student.read({
     include: {model:teacher},
     where: {id: req.params.id},
   });
@@ -45,14 +45,12 @@ router.post('/student', async (req, res, next) => {
 });
 
 router.put('/student/:id', async (req, res, next) => {
-  let updatedStudent = await student.update(req.body, {where: {id: req.params.id}});
-  let singleStudent = await student.findAll({where: {id: req.params.id}});
-  res.status(200).send(singleStudent);
+  let updatedStudent = await student.update(req.params.id, req.body );
   res.status(200).send(updatedStudent);
 });
 
 router.delete('/student/:id', async (req, res, next) => {
-  let deletedStudent = await student.delete({where: {id: req.params.id}});
+  let deletedStudent = await student.delete(req.params.id);
   console.log('Student deleted' , deletedStudent);
   res.status(200).send('Student deleted');
 });
