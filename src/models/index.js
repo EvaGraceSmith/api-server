@@ -3,6 +3,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const student = require('./student');
 const teacher = require('./teacher');
+const Collection = require('./collection');
 
 // will make dynamic for testing environment
 const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite::memory:' : process.env.DATABASE_URL;
@@ -20,6 +21,7 @@ teacherModel.belongsTo(studentModel, {foreignKey: 'studentId', targetKey: 'id'})
 
 module.exports = {
   sequelizeDatabase,
-  studentModel,
-  teacherModel,
+  student: new Collection(studentModel),
+  teacher: new Collection(teacherModel),
+  // teacherModel,
 };
