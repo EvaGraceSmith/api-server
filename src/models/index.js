@@ -16,8 +16,8 @@ const studentModel = student(sequelizeDatabase, DataTypes);
 const teacherModel = teacher(sequelizeDatabase, DataTypes);
 
 //create our associations
-studentModel.hasMany(teacherModel, {foreignKey: 'studentId', sourceKey: 'id'});
-teacherModel.belongsTo(studentModel, {foreignKey: 'studentId', targetKey: 'id'});
+studentModel.hasMany(teacherModel,{foreignKey: 'studentId'});//, sourceKey: 'id'});
+teacherModel.belongsTo(studentModel);//, {foreignKey: 'studentId', targetKey: 'id'});
 
 module.exports = {
   sequelizeDatabase,

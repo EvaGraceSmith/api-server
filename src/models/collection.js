@@ -8,9 +8,11 @@ class Collection{
   // CRUD the sequelize functionality lives here
   async create(data){
     try{
-      let newRecord = await this.model.create(data);
+        console.log('we have a model create ', data);
+        let newRecord = await this.model.create(data);
+        console.log('we have a model create ', newRecord);
       return newRecord;
- 
+
     }catch(e){
       console.log('we have a model create error' .e);
       return e;

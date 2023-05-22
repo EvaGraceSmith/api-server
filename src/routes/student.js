@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 const { student, teacher } = require('../models');
 
-//TODO change studentModel to student
 
 router.get('/student', async (req, res, next) => {
   let students = await student.read();
