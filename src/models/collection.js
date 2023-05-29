@@ -59,9 +59,9 @@ class Collection {
     }
   }
 
-  async findAll(data) {
+  async findAll() {
     try {
-      let records = await this.model.findAll(data);
+      let records = await this.model.findAll();
       console.log('RECORDS', records);
       return records;
 

@@ -47,13 +47,13 @@ router.post('/student', async (req, res, next) => {
 
 router.put('/student/:id', async (req, res, next) => {
   let updatedStudent = await student.update(req.params.id, req.body );
-  res.status(200).send('Student updated', updatedStudent);
+  res.status(200).send(updatedStudent);
 });
 
 router.delete('/student/:id', async (req, res, next) => {
   let deletedStudent = await student.delete(req.params.id);
   console.log('Student deleted' , deletedStudent);
-  res.status(200).send('Student deleted' , deletedStudent);
+  res.status(200).send('Student deleted');
 });
 
 
