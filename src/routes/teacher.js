@@ -31,12 +31,11 @@ router.put('/teacher/:id', async (req, res, next) => {
   res.status(200).send(updatedTeacher);
 });
 
+
 router.delete('/teacher/:id', async (req, res, next) => {
-
   let deletedTeacher = await teacher.delete(req.params.id);
+  console.log('Teacher deleted' , deletedTeacher);
   res.status(200).send('Teacher deleted');
-
-//   console.log('Teacher deleted' , deletedTeacher);
 });
 
 module.exports = router;

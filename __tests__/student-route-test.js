@@ -3,6 +3,7 @@
 const supertest = require('supertest');
 const { app } = require('../src/server');
 const { sequelizeDatabase } = require('../src/models');
+const { get } = require('../src/routes/student');
 const request = supertest(app);
 
 beforeAll(async () => {
@@ -60,11 +61,37 @@ describe('Testing our student routes', () => {
   },
   );
 
+  // tests get /studentWithTeacher
+  // tests get /studentWithSingleTeacher/:id
+
+  test('/studentWithTeacher', async () => {
+    const response = await request.get('/studentWithTeacher');
+    expect(response.status).toEqual(200);
+    console.log('response.body', response.body);
+    expect(response.body[0].name).toEqual('Eva');
+    expect(response.body[0].grade).toEqual(9);
+  },
+  );
+
+  test('/studentWithSingleTeacher/:id', async () => {
+
+    const response = await request.get('/studentWithSingleTeacher/1');
+    expect(response.status).toEqual(200);
+    expect(response.body[0].name).toEqual('Eva');
+    expect(response.body[0].grade).toEqual(9);
+  },
+  );
+
+
   test('delete a student', async () => {
     const response = await request.delete('/student/1');
     expect(response.status).toEqual(200);
   },
   );
+
+
+
+
 });
 
 

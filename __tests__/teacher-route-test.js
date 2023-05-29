@@ -16,7 +16,7 @@ afterAll(async () => {
 
 describe('Testing our server routes', () => {
 
-    test('create a teacher route', async () => {
+  test('create a teacher route', async () => {
     const response = await request.post('/teacher').send({
       name: 'Mrs. Smith',
       classroom: 1,
