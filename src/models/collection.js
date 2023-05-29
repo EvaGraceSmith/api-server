@@ -59,6 +59,29 @@ class Collection {
     }
   }
 
+  async findAll() {
+    try {
+      let records = await this.model.findAll();
+      console.log('RECORDS', records);
+      return records;
+
+
+    } catch (e) {
+      console.log('we have a model findAll error'.e);
+      return e;
+    }
+  }
+
+  async findOne(data) {
+    try {
+      let record = await this.model.findOne(data);
+      return record;
+
+    } catch (e) {
+      console.log('we have a model findOne error'.e);
+      return e;
+    }
+  }
 
 
 

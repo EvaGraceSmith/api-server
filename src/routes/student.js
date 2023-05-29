@@ -13,14 +13,16 @@ router.get('/student', async (req, res, next) => {
 });
 
 router.get('/studentWithTeacher', async (req, res, next) => {
-  let students = await student.read({include: {model:teacher}});
-
+  console.log('studentWithTeacher');
+  let students = await student.findAll({include: {model: teacher}});
+  console.log('students', students);
   res.status(200).send(students);
 });
 
+
 router.get('/studentWithSingleTeacher/:id', async (req, res, next) => {
-  let students = await student.read({
-    include: {model:teacher},
+  let students = await student.findAll({
+    include: {model: teacher},
     where: {id: req.params.id},
   });
 
@@ -30,7 +32,7 @@ router.get('/studentWithSingleTeacher/:id', async (req, res, next) => {
 
 
 router.get('/student/:id', async (req, res, next) => {
-  // where clause useful for update.  can also use findByPK()
+  // can also use findByPK()
   let singleStudent = await student.read(req.params.id);
 
   res.status(200).send(singleStudent);
