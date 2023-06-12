@@ -15,7 +15,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model create error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
     }
   }
 
@@ -32,7 +32,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model read error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
     }
   }
 
@@ -44,7 +44,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model update error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
     }
   }
 
@@ -55,7 +55,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model delete error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
     }
   }
 
@@ -68,7 +68,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model findAll error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
 
     }
   }
@@ -80,7 +80,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model findOne error'.e);
-      throw new Error(e.message);
+      return new Error(e.message);
     }
   }
 
