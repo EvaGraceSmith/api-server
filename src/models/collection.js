@@ -14,8 +14,9 @@ class Collection {
       return newRecord;
 
     } catch (e) {
-      console.log('we have a model create error'.e);
-      throw new Error(e.message);
+      console.log('we have a model create error', e);
+      return e;
+
     }
   }
 
@@ -32,7 +33,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model read error'.e);
-      throw new Error(e.message);
+      return e;
     }
   }
 
@@ -44,7 +45,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model update error'.e);
-      throw new Error(e.message);
+      return e;
     }
   }
 
@@ -55,20 +56,20 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model delete error'.e);
-      throw new Error(e.message);
+      return e;
     }
   }
 
-  async findAll() {
+  async findAll(data) {
     try {
-      let records = await this.model.findAll();
+      let records = await this.model.findAll(data);
       console.log('RECORDS', records);
       return records;
 
 
     } catch (e) {
       console.log('we have a model findAll error'.e);
-      throw new Error(e.message);
+      return e;
 
     }
   }
@@ -80,7 +81,7 @@ class Collection {
 
     } catch (e) {
       console.log('we have a model findOne error'.e);
-      throw new Error(e.message);
+      return e;
     }
   }
 
