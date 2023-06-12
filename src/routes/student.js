@@ -21,7 +21,7 @@ router.get('/student', async (req, res, next) => {
 router.get('/studentWithTeacher', async (req, res, next) => {
   console.log('studentWithTeacher');
   try {
-    let students = await student.findAll({include: {model: teacher}});
+    let students = await student.findAll({include: {model: teacher.model}});
     console.log('students', students);
     res.status(200).send(students);
   }
@@ -35,7 +35,7 @@ router.get('/studentWithTeacher', async (req, res, next) => {
 router.get('/studentWithSingleTeacher/:id', async (req, res, next) => {
   try {
     let students = await student.findAll({
-      include: {model: teacher},
+      include: {model: teacher.model},
       where: {id: req.params.id},
     });
     res.status(200).send(students);

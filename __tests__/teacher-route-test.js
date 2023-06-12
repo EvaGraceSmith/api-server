@@ -7,6 +7,11 @@ const request = supertest(app);
 
 beforeAll(async () => {
   await sequelizeDatabase.sync();
+  await request.post('/student').send({
+    name: 'Eva',
+    grade: 9,
+    subject: 'math',
+  });
 });
 
 afterAll(async () => {
